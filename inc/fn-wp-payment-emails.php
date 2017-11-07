@@ -29,15 +29,15 @@
 			$content_temp = '';
 			$subject = isset($option['edd_pending_notification_title'] ) ? $option['edd_pending_notification_title'] : '';
 			$content = isset($option['edd_pending_notification_content'] ) ? $option['edd_pending_notification_content'] : '';
-			$content = explode(PHP_EOL . PHP_EOL,$content);
-			$htmlcontent = '';
+			//$content = explode(PHP_EOL . PHP_EOL,$content);
+			$htmlcontent = apply_filters( 'the_content', $content);
+			/*$htmlcontent = '';
 			foreach($content as $line){
 			    $htmlcontent .= '<p>' . str_replace(PHP_EOL, '<br />' , $line) . '</p>';
 			}   
 			$htmlcontent = str_replace('&nbsp;','<br>',$htmlcontent); 
 			$htmlcontent = str_replace('\n','<br>',$htmlcontent);
-
-
+			*/
 			$content_temp = '';
 			$customer_id = edd_get_payment_customer_id($_POST['payment_id']);
 			$customer    = new EDD_Customer( $customer_id );

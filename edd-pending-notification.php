@@ -113,34 +113,7 @@ if( !class_exists( 'edd_pending_notification' ) ) {
             require_once EDD_PENDING_NOTIFICATION_DIR . 'inc/fn-wp-payment-emails.php';
    
         }
-             /**
-         * Run action and filter hooks
-         *
-         * @access      public
-         * @since       1.0.0
-         * @return      void
-         *
-         */
-         public static function hooks() {
-            // Register settings
-        }
-        
-
-        
-        public static function add_updater($args) {
-            if (empty($args['edd_pending_notification'])) {
-                $args['edd_pending_notification'] = array();
-                $args['edd_pending_notification']['api_url'] = EDD_PENDING_NOTIFICATION_STORE_URL;
-                $args['edd_pending_notification']['plugin_file'] = EDD_PENDING_NOTIFICATION_ROOT_FILE;
-                $args['edd_pending_notification']['api_data'] = array(
-                                                        'version'   => EDD_PENDING_NOTIFICATION_VER,                 // current version number
-                                                        'item_name' => EDD_PENDING_NOTIFICATION_ITEM_NAME,   // name of this plugin
-                                                        'author'    => 'Esteban Truelsegaard'  // author of this plugin
-                                                    );
-                    
-            }
-            return $args;
-        }
+      
         /**
          * Internationalization
          *

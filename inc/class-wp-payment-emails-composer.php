@@ -26,6 +26,9 @@
 		?>
 		<div class="wrap">
 			<form method="POST" action="<?php echo admin_url( 'admin-post.php' ); ?>">
+			
+				<?php wp_nonce_field( 'edd-pending-notification-action', 'edd-pending-notification-nonce-field' ); ?>
+			 
 				<input type="hidden" name="action" value="edd_pending_notification_action">
 				<label style="font-size: 20px; font-weight: bold;">
 				<?php  _e('Title','edd-pending-notification'); ?>
