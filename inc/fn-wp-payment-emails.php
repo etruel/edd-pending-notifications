@@ -11,11 +11,11 @@
 	add_filter('edd_payment_row_actions','edd_pending_notification_row_actions',99,2);
 	function edd_pending_notification_row_actions( $row_actions, $payment ){
 		$button_show = false;
-		if($payment->status=='pending'){
+		if($payment->status=='pending' or $payment->status=='failed'){
 			$customer_id = edd_get_payment_customer_id( $payment->ID );
 			$customer    = new EDD_Customer( $customer_id );
 			if ( $customer->id > 0) {
-				$row_actions['view_customer'] = '<a payment_id="'.$payment->ID.'" href="#" id="sendData" >'.__("Send Email","edd-pending-notification").'</a> <span style="display:none; color:black; font-weight:bold;" class="msj_span"></span>';
+				$row_actions['remember_by_email'] = '<a payment_id="'.$payment->ID.'" href="#" id="sendData" >'.__("Remember by email","edd-pending-notification").'</a> <span style="display:none; color:black; font-weight:bold;" class="msj_span"></span>';
 			}
 		}
 		return $row_actions;
