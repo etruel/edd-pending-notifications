@@ -8,7 +8,7 @@
  * Author URI: https://etruel.com
  * License: GPL2+
  * Text Domain: edd-pending-notification
- * Domain Path: /languages/
+ * Domain Path: /lang/
  *
  *
  * @package         etruel\edd_pending_notification Stats
@@ -123,26 +123,26 @@ if( !class_exists( 'edd_pending_notification' ) ) {
          */
          public static function load_textdomain() {
             // Set filter for language directory
-            $lang_dir = EDD_PENDING_NOTIFICATION_DIR . '/languages/';
+            $lang_dir = EDD_PENDING_NOTIFICATION_DIR . '/lang/';
             $lang_dir = apply_filters( 'edd_pending_notification_languages_directory', $lang_dir );
 
             // Traditional WordPress plugin locale filter
-            $locale = apply_filters( 'plugin_locale', get_locale(), 'edd_pending_notification' );
-            $mofile = sprintf( '%1$s-%2$s.mo', 'edd_pending_notification', $locale );
+            $locale = apply_filters( 'plugin_locale', get_locale(), 'edd-pending-notification' );
+            $mofile = sprintf( '%1$s-%2$s.mo', 'edd-pending-notification', $locale );
 
             // Setup paths to current locale file
             $mofile_local   = $lang_dir . $mofile;
-            $mofile_global  = WP_LANG_DIR . '/edd_pending_notification/' . $mofile;
+            $mofile_global  = WP_LANG_DIR . '/edd-pending-notification/' . $mofile;
 
             if( file_exists( $mofile_global ) ) {
-                // Look in global /wp-content/languages/edd_pending_notification/ folder
-                load_textdomain( 'edd_pending_notification', $mofile_global );
+                // Look in global /wp-content/languages/edd-pending-notification/ folder
+                load_textdomain( 'edd-pending-notification', $mofile_global );
             } elseif( file_exists( $mofile_local ) ) {
-                // Look in local /wp-content/plugins/edd_pending_notification/languages/ folder
-                load_textdomain( 'edd_pending_notification', $mofile_local );
+                // Look in local /wp-content/plugins/edd-pending-notification/lang/ folder
+                load_textdomain( 'edd-pending-notification', $mofile_local );
             } else {
                 // Load the default language files
-                load_plugin_textdomain( 'edd_pending_notification', false, $lang_dir );
+                load_plugin_textdomain( 'edd-pending-notification', false, $lang_dir );
             }
         }
 

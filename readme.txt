@@ -41,9 +41,11 @@ You can either install it automatically from the WordPress admin, or do it manua
 
 == Changelog ==
 
+= 1.0.1 =
+*Multilanguage aggregate English / Spanish
 
 = 1.0 =
-First approach Edd Pending Notification for Easy Digital Downloads.
+*First approach Edd Pending Notification for Easy Digital Downloads.
 
 == Upgrade Notice ==
 1.1 Continues doing a better Visual Builder for forms from Contact Form 7.

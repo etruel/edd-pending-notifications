@@ -42,7 +42,7 @@
 				 ?>
 				 <br><strong><?php _e('Allowed labels','edd-pending-notification'); ?>:</strong><br>
 				<p id="emailtags"><span>{first_name}</span>  <span>{last_name}</span> <span>{nickname}</span><span>{user_email}</span>  <span>{client_name}</span><span>{product_name}</span></p>
-				<input type="submit" name="save" value="<?php _e('Save','edd_pending-notification'); ?>" class="button button-primary">
+				<input type="submit" name="save" value="<?php _e('Save','edd-pending-notification'); ?>" class="button button-primary">
 			</form>
 		</div>
 		<?php
