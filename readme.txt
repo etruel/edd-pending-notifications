@@ -3,8 +3,8 @@ Contributors: etruel,albertdesinger
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GT3UVS8UCAHV8
 Tags: Email, Send Email, Quick Action, Easy Digital Download, Edd, Edd Pending Notification
 Requires at least: 4.1
-Tested up to: 4.9
-Stable tag: 1.0
+Tested up to: 5.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,4 @@ You can either install it automatically from the WordPress admin, or do it manua
 = 1.0 =
 *First approach Edd Pending Notification for Easy Digital Downloads.
 
-== Upgrade Notice ==
-1.1 Continues doing a better Visual Builder for forms from Contact Form 7.
 

@@ -33,8 +33,8 @@ function edd_pending_notifcation_admin_scripts( $hook ) {
         array(
             'nonce' => wp_create_nonce('edd_pending_notifcation_nonce'),
             'plugin_url' => plugin_dir_url( dirname( __FILE__ )),
-            'ajax_url'=> admin_url( 'admin-ajax.php' ),
-            'text_send_email' =>__('Send Email','edd-pending-notification')
+           // 'ajax_url'=> admin_url( 'admin-ajax.php' ),
+            'text_send_email' =>__('Sending Email','edd-pending-notification')
           )
         );
       

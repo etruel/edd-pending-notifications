@@ -11,11 +11,11 @@
 	add_filter('edd_payment_row_actions','edd_pending_notification_row_actions',99,2);
 	function edd_pending_notification_row_actions( $row_actions, $payment ){
 		$button_show = false;
-		if($payment->status=='pending' or $payment->status=='failed'){
+		if($payment->status=='pending' or $payment->status=='failed' or $payment->status=='abandoned'){
 			$customer_id = edd_get_payment_customer_id( $payment->ID );
 			$customer    = new EDD_Customer( $customer_id );
 			if ( $customer->id > 0) {
-				$row_actions['remember_by_email'] = '<a payment_id="'.$payment->ID.'" href="#" id="sendData" >'.__("Remember by email","edd-pending-notification").'</a> <span style="display:none; color:black; font-weight:bold;" class="msj_span"></span>';
+				$row_actions['remember_by_email'] = '<a payment_id="'.$payment->ID.'" href="JavaScript:void(0);" id="sendData" >'.__("Remember by email","edd-pending-notification").'</a> <span style="display:none; color:black; font-weight:bold;" class="msj_span"></span>';
 			}
 		}
 		return $row_actions;
@@ -38,18 +38,24 @@
 			$htmlcontent = str_replace('&nbsp;','<br>',$htmlcontent); 
 			$htmlcontent = str_replace('\n','<br>',$htmlcontent);
 			*/
+			$payment_id = (int)sanitize_text_field($_POST['payment_id']);
 			$content_temp = '';
-			$customer_id = edd_get_payment_customer_id($_POST['payment_id']);
+			$customer_id = edd_get_payment_customer_id($payment_id);
 			$customer    = new EDD_Customer( $customer_id );
 			//get user data
-			$user_info   = edd_get_payment_meta_user_info($_POST['payment_id']);
+			$user_info   = edd_get_payment_meta_user_info($payment_id);
 			$email		 = $user_info['email'];
 			//we replace the content of the tags with those of the user
-			$content_temp = edd_pending_notification_replace_content($htmlcontent,$email,$_POST['payment_id']);
+			$content_temp = edd_pending_notification_replace_content($htmlcontent,$email,$payment_id);
 			//send email
-			wp_mail($email, $subject, $content_temp, array( 'Content-Type: text/html; charset=UTF-8' ) );
-			_e('Message sent succesfully','edd-pending-notification');
-			wp_die();
+			
+			//wp_mail return bool Whether the email contents were sent successfully.
+			if(wp_mail($email, $subject, $content_temp, array( 'Content-Type: text/html; charset=UTF-8' ) ) )
+				$mes = __('Message sent succesfully','edd-pending-notification');
+			else{
+				$mes = __('Something goes wrong.','edd-pending-notification');
+			}
+			wp_die( $mes );
 	}
 
 

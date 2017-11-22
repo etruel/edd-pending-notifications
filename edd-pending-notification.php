@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Edd Pending Notification
  * Plugin URI: http://www.netmdp.com
- * Description: Add a Send email quick action to all pending payments to easily remember the user about his pending order.
- * Version: 1.0
+ * Description: Add a Send email quick action to all pending payments to easily remember the user about his pending order with an email template.
+ * Version: 1.1
  * Author: etruel
  * Author URI: https://etruel.com
  * License: GPL2+
@@ -32,7 +32,7 @@ if( !class_exists( 'edd_pending_notification' ) ) {
 
     // Plugin version
     if(!defined('EDD_PENDING_NOTIFICATION_VER')) {
-        define('EDD_PENDING_NOTIFICATION_VER', '1.0' );
+        define('EDD_PENDING_NOTIFICATION_VER', '1.1' );
     }
     
     /**
